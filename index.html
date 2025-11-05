@@ -151,7 +151,7 @@
 			background-color: #5E7D8A;
 			cursor: not-allowed;
 		}
-
+		
 		#skipBtn {
 			position: fixed;
 			top: 20px;
@@ -179,7 +179,7 @@
 			<source src="Introduction.mp4" type="video/mp4">
 			Browser Anda tidak mendukung video.
 		</video>
-
+		
 		<button id="skipBtn">Skip</button>
 		
 		<audio id="music" hidden loop>
@@ -240,6 +240,7 @@
 						<label><input type="radio" name="Status" value="SD" required>Elementary School</label>
 						<label><input type="radio" name="Status" value="SMP">Junior High School</label>
 						<label><input type="radio" name="Status" value="SMA">Senior High School</label>
+						<label><input type="radio" name="Status" value="SMK">Vocational School</label>
 						<label><input type="radio" name="Status" value="Kuliah">University</label>
 						<label><input type="radio" name="Status" value="Keluarga">Family</label>
 					</div>
@@ -346,18 +347,21 @@
 		</script>
   
 		<script>
-			const video = document.getElementById("intro");
-			const info = document.getElementById("info");
-			const music = document.getElementById("music");
-			
-			video.addEventListener("ended", () => {
-				video.style.opacity = "0";
-				
+			const skipBtn = document.getElementById("skipBtn");
+			const introVideo = document.getElementById("intro");
+			const infoSection = document.getElementById("info");
+			const bgMusic = document.getElementById("music");
+
+			skipBtn.addEventListener("click", () => {
+				introVideo.pause();
+				introVideo.style.opacity = "0";
+
 				setTimeout(() => {
-					video.style.display = "none";
-					info.style.display = "flex";
-					music.play();
-				}, 2000);
+					introVideo.style.display = "none";
+					infoSection.style.display = "flex";
+					bgMusic.play();
+					skipBtn.style.display = "none";
+				}, 500);
 			});
 		</script>
 		
@@ -387,6 +391,3 @@
 		</script>
 </body>
 </html>
-
-
-
