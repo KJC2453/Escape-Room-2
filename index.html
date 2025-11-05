@@ -151,6 +151,26 @@
 			background-color: #5E7D8A;
 			cursor: not-allowed;
 		}
+
+		#skipBtn {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 3;
+			background-color: #1E3A5F;
+			color: white;
+			border: 3px solid black;
+			border-radius: 10px;
+			padding: 15px;
+			width: 150px;
+			font-size: 20px;
+			cursor: pointer;
+			transition: background 0.3s;
+		}
+
+		#skipBtn:hover {
+			background-color: #F9A602;
+		}
 		
 	</style>
 </head>
@@ -159,6 +179,8 @@
 			<source src="Introduction.mp4" type="video/mp4">
 			Browser Anda tidak mendukung video.
 		</video>
+
+		<button id="skipBtn">Skip</button>
 		
 		<audio id="music" hidden loop>
 			<source src="Soundtrack.mp3" type="audio/mp3">
@@ -365,5 +387,6 @@
 		</script>
 </body>
 </html>
+
 
 
